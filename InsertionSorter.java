@@ -16,6 +16,9 @@ public class InsertionSorter extends Sorter {
   /**
    * sort the user's data, implementing insertion sort
    */
+  //Precondition: elements rferences a valid ArrayList<String>
+  //Postcondition: elements' elements are sorted in lexographic order.
+  //Algorithm: For each element in the list, call insertOne.
   public void mySort() {
     for (int i = 0; i < elements.size(); i++) {
       System.out.println("List before next step: "+ elements);
@@ -23,6 +26,11 @@ public class InsertionSorter extends Sorter {
     }
   }
 
+  //Precondition: list != null, sortedBound points to the first element in the unsorted region
+  //Postcondition: the first element in the unsorted region is sorted
+  //Algorithm: iterate over every element in the sorted region backwards. If the element
+  //being sorted is greater than the compared element, drop it in the space created.
+  //otherwise, shift the compared element one position to the right.
   private static void insertOne(ArrayList<String> list, int sortedBound) {
     String toBeSorted = list.get(sortedBound);
     for(int beingCompared = sortedBound - 1; beingCompared >= 0; beingCompared--) { 
